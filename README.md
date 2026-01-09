@@ -23,8 +23,8 @@ Amplitude | Phase
 
 ## Setup (Windows / PowerShell)
 
+Clone the repository:
+
 ```powershell
-cd "F:\github code\FPM\FPM-classic"
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
+git clone https://github.com/pj-sun-optics/FPM-classic.git
+cd FPM-classic
