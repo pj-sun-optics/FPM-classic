@@ -32,7 +32,7 @@ def main():
     args = p.parse_args()
 
     recover_pupil = args.recover_pupil and (not args.no_recover_pupil)
-    # 默认开启 pupil recovery（更符合你后续做系统失配/像差的路线）
+    # 默认开启 pupil recovery（更符合后续做系统失配/像差的路线）
     if (not args.recover_pupil) and (not args.no_recover_pupil):
         recover_pupil = True
 
