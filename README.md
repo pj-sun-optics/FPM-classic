@@ -35,4 +35,4 @@ cd FPM-classic
 
 ## Physical Process  （物理过程）
 
-![FPM pipeline](assets/physical process.png)
+![FPM pipeline](assets/physical_process.png)
