@@ -31,7 +31,7 @@ def simulate_fpm_intensity(obj_hr: np.ndarray, pupil_lr: np.ndarray, centers: np
     I = np.zeros((K, m, m), dtype=np.float32)
     for k in range(K):
         cx, cy = int(centers[k, 0]), int(centers[k, 1])
-        O_patch = extract_patch(O, cx, cy, m)
-        psi = ifft2c(O_patch * pupil_lr)
-        I[k] = (np.abs(psi) ** 2).astype(np.float32)
+        O_patch = extract_patch(O, cx, cy, m)                #  取频域patch
+        psi = ifft2c(O_patch * pupil_lr)                     #  取出来的patch乘pupil并做逆傅里叶变换
+        I[k] = (np.abs(psi) ** 2).astype(np.float32)         #  相机最终测得的强度
     return I

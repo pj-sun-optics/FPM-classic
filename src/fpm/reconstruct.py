@@ -40,7 +40,7 @@ def reconstruct_fpm(
     hs = m // 2
     obj_hr[N//2-hs:N//2+hs, N//2-hs:N//2+hs] = obj_lr0.astype(np.complex64)
     O = fft2c(obj_hr)
-
+    print(intensities.shape)
     for it in range(n_iters):
         for k in range(K):
             cx, cy = int(centers[k, 0]), int(centers[k, 1])
