@@ -1,27 +1,12 @@
 import sys
-from pathlib import Path
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
-import sys
-from pathlib import Path
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
-from fpm.phantoms import make_usaf_like_amp
-
 import argparse
 import numpy as np
-
 from fpm.optics import make_circular_pupil, build_centers_grid
 from fpm.simulate import build_demo_object, simulate_fpm_intensity
 from fpm.phantoms import make_usaf_like_amp, make_amp_from_image
-
-
-
-
-import numpy as np
-
-
-
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
 
 def apply_center_jitter(centers: np.ndarray, N: int, m: int, jitter_px: float, seed: int) -> np.ndarray:
     """Add Gaussian jitter to integer centers, then round+clip to keep patches in-bounds."""
@@ -41,10 +26,6 @@ def apply_center_jitter(centers: np.ndarray, N: int, m: int, jitter_px: float, s
     c[:, 0] = np.clip(c[:, 0], hs, N - hs - 1)
     c[:, 1] = np.clip(c[:, 1], hs, N - hs - 1)
     return c
-
-
-
-
 
 def main():
     p = argparse.ArgumentParser()
@@ -110,9 +91,6 @@ def main():
        f"| jitter_px={args.jitter_px} | seed={args.seed}"
     )
     print("centers[0:5] =", centers[:5])
-
-
-
 
 if __name__ == "__main__":
     main()

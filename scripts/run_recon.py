@@ -1,17 +1,11 @@
 import sys
-from pathlib import Path
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
-import sys
-from pathlib import Path
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
-
 import argparse
 import json
 import numpy as np
 import matplotlib.pyplot as plt
-
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
 from fpm.reconstruct import reconstruct_fpm
 from fpm.metrics import rmse
 
