@@ -34,7 +34,7 @@ def main():
     recover_pupil = args.recover_pupil and (not args.no_recover_pupil)
     # 默认开启 pupil recovery（更符合后续做系统失配/像差的路线）
     if (not args.recover_pupil) and (not args.no_recover_pupil):
-        recover_pupil = True
+        recover_pupil = False
 
     data = np.load(args.data, allow_pickle=True)
     I = data["I"]
@@ -59,6 +59,16 @@ def main():
 
     save_img(out_dir / "pupil_amp.png", np.abs(pupil_est))
     save_img(out_dir / "pupil_phase.png", np.angle(pupil_est), cmap="twilight")
+
+
+    # direct imaging baseline (no FPM): use the first measurement (on-axis)
+    intensities = data["I"]
+    I0 = intensities[0]
+    direct_amp0 = np.sqrt(np.maximum(I0, 0.0)).astype(np.float32)
+
+    save_img(out_dir/ "direct_amp0.png", direct_amp0)
+    save_img(out_dir/ "direct_I0.png", I0.astype(np.float32))
+
 
     metrics = {"recover_pupil": recover_pupil}
     if "obj_gt" in data:

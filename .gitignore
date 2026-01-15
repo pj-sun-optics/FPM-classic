@@ -19,3 +19,11 @@ results/
 Thumbs.db
 .vscode/
 .idea/
+
+
+# Generated outputs
+results/
+results_*/
+data/*.npz
+data/*.npy
+data/*.png

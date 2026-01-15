@@ -36,11 +36,17 @@ def build_centers_grid(N: int, m: int, grid: int = 9, max_shift: int = 70) -> np
     hs = m // 2
     shifts = np.linspace(-max_shift, max_shift, grid).astype(int)
 
+
+
+
     centers = []
     for dy in shifts:
         for dx in shifts:
             cx = c0 + dx
             cy = c0 + dy
             if (cx-hs >= 0 and cx+hs < N and cy-hs >= 0 and cy+hs < N):
-                centers.append((cx, cy))
+                centers.append((cx, cy))    
+
+
     return np.array(centers, dtype=np.int32)
+

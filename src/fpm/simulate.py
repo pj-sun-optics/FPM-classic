@@ -1,5 +1,7 @@
 import numpy as np
 from .optics import fft2c, ifft2c, extract_patch
+from .phantoms import make_usaf_like_amp
+
 
 def build_demo_object(N: int, seed: int = 0) -> np.ndarray:
     """
@@ -8,7 +10,7 @@ def build_demo_object(N: int, seed: int = 0) -> np.ndarray:
     rng = np.random.default_rng(seed)
     yy, xx = np.mgrid[0:N, 0:N]
 
-    amp = 0.3 + 0.7 * (((xx // 16 + yy // 16) % 2).astype(np.float32))
+    amp = make_usaf_like_amp(N)
     phase = 0.8*np.sin(2*np.pi*xx/N*6) + 0.6*np.cos(2*np.pi*yy/N*4)
 
     # add mild random phase texture
@@ -35,3 +37,5 @@ def simulate_fpm_intensity(obj_hr: np.ndarray, pupil_lr: np.ndarray, centers: np
         psi = ifft2c(O_patch * pupil_lr)                     #  取出来的patch乘pupil并做逆傅里叶变换
         I[k] = (np.abs(psi) ** 2).astype(np.float32)         #  相机最终测得的强度
     return I
+
+
