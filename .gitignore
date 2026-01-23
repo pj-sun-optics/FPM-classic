@@ -1,32 +1,43 @@
-# Python
+# =========================
+# Python / Virtual Env
+# =========================
 .venv/
+venv/
+Include/
+Lib/
+Scripts/
+share/
+
 __pycache__/
-.pytest_cache/
 *.pyc
 *.pyo
 *.pyd
+
 .pytest_cache/
 .mypy_cache/
 
-
-# venv
-.venv/
-venv/
-
-# data/results (do not commit bulky artifacts)
+# =========================
+# Data & Results (bulky, reproducible)
+# =========================
 data/
 results/
+results_*/
 
+# If you want to keep tiny demos, copy them to assets/
+# (do NOT commit raw run outputs)
+runs/**/obj_hat.npy
+runs/**/pupil_hat.npy
+runs/**/outputs/
+
+# =========================
+# Temporary / Local files
+# =========================
+tree_dirs.txt
+
+# =========================
 # OS / IDE
+# =========================
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
-
-
-# Generated outputs
-results/
-results_*/
-data/*.npz
-data/*.npy
-data/*.png

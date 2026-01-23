@@ -3,10 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import numpy as np
-try:
-    from imageio import v2 as imageio
-except Exception:
-    import imageio
+import imageio.v2 as imageio
 
 def ensure_dir(path: str | Path) -> Path:
     p = Path(path)

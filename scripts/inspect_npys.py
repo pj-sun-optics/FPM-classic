@@ -1,6 +1,18 @@
 import argparse
 from pathlib import Path
 import numpy as np
+import matplotlib.pyplot as plt
+
+
+obj = np.load("runs/usaf_perm_mismatch/obj_hat.npy")   # 或 perm_mismatch
+F = np.fft.fftshift(np.fft.fft2(obj))
+
+plt.figure()
+plt.imshow(np.log1p(np.abs(F)), cmap="gray")
+plt.title("log |FFT(obj_hat)|")
+plt.colorbar()
+plt.show()
+
 
 def save_png(path: Path, x: np.ndarray, eps: float = 1e-12):
     x = np.asarray(x)
