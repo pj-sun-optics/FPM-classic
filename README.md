@@ -5,11 +5,24 @@ A minimal, reproducible implementation of **classic Fourier Ptychographic Micros
 - iterative reconstruction (object update; optional pupil recovery)
 - basic tests for sanity & maintainability
 
+
+## Quickstart
+
+```bash
+pip install -r requirements.txt
+
+# simulate (USAF)
+python scripts/simulate_data.py --out data/usaf_base.npz --phantom usaf --seed 0
+
+# reconstruct
+python scripts/run_recon.py --in data/usaf_base.npz --out runs/quickstart_usaf --n-iters 6
+```
+
 ## Demo results
 
 Amplitude | Phase
-:--:|:--:
-![](assets/amp.png) | ![](assets/phase.png)
+:--:|:--:|:--:
+![](assets/amp.png) | ![](assets/phase.png)|![](assets/USAF1951.png)
 
 (Optional) Pupil amplitude | Pupil phase
 :--:|:--:
