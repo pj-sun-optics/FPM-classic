@@ -23,7 +23,7 @@ python scripts/run_recon.py --in data/usaf_base.npz --out runs/quickstart_usaf -
 Amplitude | Phase | USAF-1951
 :--:|:--:|:--: 
 
-<img src="assets/amp.png" width="260"> | <img src="assets/phase.png" width="260"> | <img src="assets/USAF1951.png" width="260">
+![]<img src="assets/amp.png" width="260"> | ![]<img src="assets/phase.png" width="260"> | ![]<img src="assets/USAF1951.png" width="260">
 
 
 (Optional) Pupil amplitude | Pupil phase
