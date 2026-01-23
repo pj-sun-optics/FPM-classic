@@ -23,7 +23,7 @@ data/
 results/
 results_*/
 
-# If you want to keep tiny demos, copy them to assets/
+
 # (do NOT commit raw run outputs)
 runs/**/obj_hat.npy
 runs/**/pupil_hat.npy
